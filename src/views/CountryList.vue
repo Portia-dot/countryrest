@@ -18,7 +18,7 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Dropdown button
+          Region
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">Action</a>
