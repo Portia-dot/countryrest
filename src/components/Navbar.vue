@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar class="navbar" toggleable>
+    <b-navbar class="navbar">
       <b-navbar-brand>
         <h2>
           <router-link to="/">Where In The World ?</router-link>
@@ -50,6 +50,7 @@ export default {
 .navbar {
   max-width: 90% !important;
   margin: 0 auto;
+  justify-content: space-between;
 }
 .h5 {
   display: flex !important;

@@ -1,5 +1,33 @@
 <template>
   <div class="hello">
+    <div class="form-group container d-flex">
+      <input
+        type="search"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Enter Country Name"
+        v-model="search"
+      />
+      <div class="dropdown d-flex">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </div>
+
     <div class="row editTry">
       <CountryCard
         v-for="country in filterSearch"
@@ -17,32 +45,44 @@ export default {
   data() {
     return {
       search: '',
+      region: '',
+      selectedRegion: 'all',
     }
   },
   components: {
     CountryCard,
   },
-  created() {
+  async created() {
     this.$store.dispatch('fetchCountries')
   },
-  computed: { ...mapState(['countries']) },
-  filterSearch() {
-    if (this.search.trim().length > 0) {
-      return this.countries.filter((country) => {
-        country.name.toLowerCase()
-        return this.search
-          .toLowerCase()
-          .split('')
-          .every((v) => country.name.includes(v))
-      })
-    } else {
-      return this.countries
-    }
+  //
+  // },
+  // computed: {  },
+  computed: {
+    filterSearch() {
+      if (this.search.trim().length > 0) {
+        return this.countries.filter((item) => {
+          return this.search
+            .toLowerCase()
+            .split('')
+            .every((v) => item.name.toLowerCase().includes(v))
+        })
+      } else {
+        return this.countries
+      }
+    },
+    ...mapState(['countries']),
   },
 }
 </script>
 
 <style scoped>
+.form-group {
+  justify-content: space-between;
+}
+.form-control {
+  max-width: 40% !important;
+}
 img {
   width: 390px;
   height: 250px;
@@ -59,6 +99,7 @@ img {
 .hello {
   max-width: 95% !important;
   margin: 0 auto;
+  padding-top: 4rem;
 }
 h3 {
   margin: 40px 0 0;
