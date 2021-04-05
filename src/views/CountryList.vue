@@ -11,7 +11,7 @@
       />
       <div class="dropdown d-flex">
         <button
-          class="btn btn-secondary dropdown-toggle"
+          class="btn dropdown-toggle"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
@@ -77,6 +77,9 @@ export default {
 </script>
 
 <style scoped>
+.btn {
+  color: #fff;
+}
 .form-group {
   justify-content: space-between;
 }
