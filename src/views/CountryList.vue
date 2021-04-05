@@ -2,10 +2,11 @@
   <div class="hello">
     <div class="form-group container d-flex">
       <input
+        name="search"
         type="search"
         class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
+        id="search"
+        aria-describedby="search"
         placeholder="Enter Country Name"
         v-model="search"
       />
@@ -20,11 +21,6 @@
         >
           Region
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
       </div>
     </div>
 
