@@ -6,7 +6,7 @@
           <router-link to="/">Where In The World ?</router-link>
         </h2>
       </b-navbar-brand>
-      <b-button @click="darkThemeSwitch" size="sm" class="mb-2" variants="blue">
+      <b-button @click="darkThemeSwitch" size="sm" class="mb-2">
         <b-icon icon="moon" aria-hidden="true"></b-icon> Dark Mode
       </b-button>
     </b-navbar>

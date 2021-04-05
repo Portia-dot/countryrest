@@ -2,7 +2,7 @@
   <div class="hello">
     <div class="form-group container d-flex">
       <input
-        name="search"
+        aria-label="search"
         type="search"
         class="form-control"
         id="search"
