@@ -10,18 +10,23 @@
         placeholder="Enter Country Name"
         v-model="search"
       />
-      <div class="dropdown d-flex">
-        <button
-          class="btn dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
+
+      <select
+        v-if="showFilter"
+        v-model="region"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option selected disabled>Select Region</option>
+        <option
+          v-for="list in countryList"
+          :key="list.name"
+          v-bind:value="list.value"
+          v-on:click="handleFilterClick"
         >
-          Region
-        </button>
-      </div>
+          {{ list.name }}
+        </option>
+      </select>
     </div>
 
     <div class="row editTry">
@@ -41,8 +46,18 @@ export default {
   data() {
     return {
       search: '',
-      region: '',
+      showFilter: true,
+      showAllRegion: false,
+      // region: '',
       selectedRegion: 'all',
+      countryList: [
+        { name: ' All ', value: 'All Regions' },
+        { name: 'Africa', value: 'Africa' },
+        { name: 'America', value: 'America' },
+        { name: 'Europe', value: 'Europe' },
+        { name: 'Oceania', value: 'Oceania' },
+      ],
+      region: '',
     }
   },
   components: {
@@ -56,23 +71,47 @@ export default {
   // computed: {  },
   computed: {
     filterSearch() {
-      if (this.search.trim().length > 0) {
-        return this.countries.filter((item) => {
-          return this.search
-            .toLowerCase()
-            .split('')
-            .every((v) => item.name.toLowerCase().includes(v))
-        })
-      } else {
-        return this.countries
-      }
+      return this.countries.filter((country) => {
+        if (this.region === '' || this.region === 'All Regions') {
+          return country.name.toLowerCase().match(this.search.toLowerCase())
+        } else if (this.search !== '') {
+          return country.name.toLowerCase().match(this.search.toLowerCase())
+        } else {
+          return country.region.match(this.region)
+        }
+      })
+      // if (this.search.trim().length > 0) {
+      //   return this.countries.filter((item) => {
+      //     return this.search
+      //       .toLowerCase()
+      //       .split('')
+      //       .every((v) => item.name.toLowerCase().includes(v))
+      //   })
+      // } else {
+      //   return this.countries
+      // }
     },
     ...mapState(['countries']),
+  },
+  methods: {
+    handleFilterClick() {
+      setTimeout(() => {
+        this.showAllRegion
+      })
+    },
   },
 }
 </script>
 
 <style scoped>
+.dropdownInput {
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute;
+}
+input[type='radio'] {
+  -webkit-appearance: radio;
+}
 .btn {
   color: #fff;
 }

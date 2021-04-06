@@ -31,6 +31,15 @@
             {{ allLang.name }}
           </p>
         </div>
+        <div class="border_main">
+          <span> Border Country: </span>
+          <ul
+            v-for="(borderCountry, index) in country.borders"
+            :key="index.borderCountry"
+          >
+            <li>{{ borderCountry }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -50,6 +59,7 @@ export default {
   },
   computed: {
     ...mapState(['country']),
+
     convertPop() {
       return this.country.population.toLocaleString()
     },
@@ -84,5 +94,27 @@ img {
 }
 .cdq {
   align-items: center;
+}
+.border_main {
+  display: flex;
+  margin: 40px 0;
+}
+ul {
+  list-style: none;
+}
+.border_main span {
+  word-wrap: unset;
+  display: block;
+
+  min-width: 150px;
+  padding: 5px;
+}
+li {
+  display: block;
+  padding: 5px 17px;
+  transition: background 0.3s ease-in-out;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 </style>

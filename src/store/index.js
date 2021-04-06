@@ -16,6 +16,9 @@ export default new Vuex.Store({
     SET_COUNTRY(state, country) {
       state.country = country
     },
+    // SET_BORDERS(state, border) {
+    //   state.border = border
+    // },
   },
   actions: {
     fetchCountries({ commit }) {
@@ -36,6 +39,9 @@ export default new Vuex.Store({
           console.log('There was an error:', +error.response)
         })
     },
+    // fetchBorder() {
+    //   this.fetchCountry
+    // },
   },
   modules: {},
 })

@@ -17,3 +17,10 @@ p {
 .form-control {
   background-color: #2c3e50;
 }
+li {
+  color: #42b983;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+.border_main span {
+  color: #42b983;
+}
