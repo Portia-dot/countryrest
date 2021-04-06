@@ -11,7 +11,7 @@
         </div>
         <div class="other">
           <p>{{ country.nativeName }}</p>
-          <p>{{ convertPop ? convertPop : 0 }}</p>
+          <p>{{ country.population.toLocaleString() }}</p>
           <p>{{ country.region }}</p>
           <p>{{ country.subRegion }}</p>
           <p>{{ country.capital }}</p>
@@ -52,20 +52,13 @@ import { mapState } from 'vuex'
 export default {
   props: ['alpha2Code'],
   data() {
-    return {
-      population: 0,
-      country: '',
-    }
+    return {}
   },
   created() {
     this.$store.dispatch('fetchCountry', this.alpha2Code)
   },
   computed: {
     ...mapState(['country']),
-
-    convertPop() {
-      return this.country.population.toLocaleString()
-    },
   },
 }
 </script>
