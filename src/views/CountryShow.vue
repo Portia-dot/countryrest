@@ -54,6 +54,7 @@ export default {
   data() {
     return {
       population: 0,
+      country: '',
     }
   },
   created() {
@@ -70,6 +71,9 @@ export default {
 </script>
 
 <style scoped>
+.border_main {
+  flex-wrap: wrap;
+}
 img {
   width: 100%;
   max-width: 600px;
