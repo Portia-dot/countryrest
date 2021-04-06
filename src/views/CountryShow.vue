@@ -32,12 +32,14 @@
           </p>
         </div>
         <div class="border_main">
+          <!-- <span v-if="country.border.length === 0"> No Border Country</span> -->
           <span> Border Country: </span>
           <ul
             v-for="(borderCountry, index) in country.borders"
             :key="index.borderCountry"
           >
-            <li>{{ borderCountry }}</li>
+            <li v-if="country.border === 0">Country Has No border</li>
+            <li v-else>{{ borderCountry }}</li>
           </ul>
         </div>
       </div>
