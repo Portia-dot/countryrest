@@ -11,7 +11,7 @@
         </div>
         <div class="other">
           <p>{{ country.nativeName }}</p>
-          <p>{{ country.population.toLocaleString() }}</p>
+          <p>{{ country.population }}</p>
           <p>{{ country.region }}</p>
           <p>{{ country.subRegion }}</p>
           <p>{{ country.capital }}</p>
@@ -38,7 +38,7 @@
             v-for="(borderCountry, index) in country.borders"
             :key="index.borderCountry"
           >
-            <li v-if="country.border === 0">Country Has No border</li>
+            <li v-if="index.borderCountry == 0">Country Has No border</li>
             <li v-else>{{ borderCountry }}</li>
           </ul>
         </div>
