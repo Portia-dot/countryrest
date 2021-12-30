@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'https://restcountries.eu/rest/v2',
+  baseURL: 'https://restcountries.com/v2',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
